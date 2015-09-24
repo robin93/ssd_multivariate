@@ -1,11 +1,11 @@
-Top_companies,Sales,Profits,Assets
-Citigroup,108.28,17.05,1484.1
-General Electric,152.36,16.59,750.33
-American Intl Group,95.04,10.91,766.42
-Bank of America,65.45,14.14,1110.46
-HSBC Group,62.97,9.52,1031.29
-ExxonMobil,263.99,25.33,195.26
-Royal Dutch/Shell,265.19,18.54,193.83
-BP,285.06,15.73,191.11
-ING Group,92.01,8.1,1175.16
-Toyota Motor,165.68,11.13,211.15
+Top_companies,Sales,Profits,Assets,Serial NO
+Citigroup,108.28,17.05,1484.1,1
+General Electric,152.36,16.59,750.33,2
+American Intl Group,95.04,10.91,766.42,3
+Bank of America,65.45,14.14,1110.46,4
+HSBC Group,62.97,9.52,1031.29,5
+ExxonMobil,263.99,25.33,195.26,6
+Royal Dutch/Shell,265.19,18.54,193.83,7
+BP,285.06,15.73,191.11,8
+ING Group,92.01,8.1,1175.16,9
+Toyota Motor,165.68,11.13,211.15,10
