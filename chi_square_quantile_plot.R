@@ -34,3 +34,27 @@ sorted_normal_quantile_val <- sort(unsorted_normal_quantile_val)
 plot(sorted_normal_quantile_val,sort(abs_rad_val[,2]))
 plot(sorted_normal_quantile_val,sort(log_rad_val[,2]))
 plot(sorted_normal_quantile_val,sort(lambda_4_val[,2]))
+
+
+#4.29 question program
+pollution_data <- data.frame(read.table("4_29_data_air_pollution.dat",header = FALSE,fill = TRUE))
+pollution_data
+data2 <- pollution_data[,5:6]
+colnames(data2) <- c("NO2","03")
+data2
+scaled_pol_data <- scale(data2,scale=FALSE)
+scaled_pol_data_transpose <-t(scaled_pol_data)
+sig_mat <- cov(data2)
+inv_sig_mat <- solve(sig_mat)
+dist_alt <- diag(scaled_pol_data%*%inv_sig_mat%*%scaled_pol_data_transpose)
+
+chi_square_vals <- qchisq((1:nrow(data2)-1/2)/nrow(data2),df=2)
+
+#construct an ordered chi squared plot
+par(mfrow = c(1,1))
+plot(qchisq((1:nrow(data2)-1/2)/nrow(data2),df=2), sort(dist_alt),
+     xlab = expression(paste(chi[2]^2, "Quantile")),
+     ylab = "Ordered Distances",
+     main = "Chi-square Plot for (NO2, O3)"); abline(a=0, b=1)
+
+
