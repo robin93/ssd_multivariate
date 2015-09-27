@@ -48,13 +48,15 @@ sig_mat <- cov(data2)
 inv_sig_mat <- solve(sig_mat)
 dist_alt <- diag(scaled_pol_data%*%inv_sig_mat%*%scaled_pol_data_transpose)
 
-chi_square_vals <- qchisq((1:nrow(data2)-1/2)/nrow(data2),df=2)
+quantile(dist_alt,c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0))
+
+data_points <- nrow(data2)
+
+chi_square_vals <- qchisq((1:data_points-1/2)/data_points,df=2)
 
 #construct an ordered chi squared plot
 par(mfrow = c(1,1))
-plot(qchisq((1:nrow(data2)-1/2)/nrow(data2),df=2), sort(dist_alt),
-     xlab = expression(paste(chi[2]^2, "Quantile")),
-     ylab = "Ordered Distances",
-     main = "Chi-square Plot for (NO2, O3)"); abline(a=0, b=1)
+plot(chi_square_vals, sort(dist_alt))
+abline(a=0, b=1)
 
 
